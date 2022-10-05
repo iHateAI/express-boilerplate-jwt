@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 
 const ApiError = require("../utils/ApiError");
 
-const { User } = require("../models/schemas");
+const { User } = require("../models");
 
 module.exports = {
   /**
@@ -57,6 +57,7 @@ module.exports = {
     if (!isCorrectPassword) {
       throw ApiError.badRequest("비밀번호가 일치하지 않습니다.");
     }
+
     return {
       userId: user._id,
       email: user.email,
@@ -68,7 +69,7 @@ module.exports = {
    * JWT 토큰 생성
    *
    * @param {String} userId
-   * @returns
+   * @returns {String}
    */
   async generateAccessToken(userId) {
     const token = jwt.sign(

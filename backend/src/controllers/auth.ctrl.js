@@ -11,6 +11,7 @@ module.exports = {
         token,
         ...user,
       };
+      
       res.status(200).json({
         status: 200,
         message: "로그인 성공",
@@ -25,6 +26,7 @@ module.exports = {
     const { email, password, nickname } = req.body;
     try {
       const user = await authService.createUser(email, password, nickname);
+      
       res.status(201).json({
         status: 201,
         message: "회원가입 성공",

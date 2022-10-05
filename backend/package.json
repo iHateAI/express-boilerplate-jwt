@@ -4,7 +4,7 @@
   "description": "익스프레스 보일러 플레이트 WITH JWT",
   "main": "index.js",
   "scripts": {
-    "startApp": "nodemon app"
+    "start": "nodemon app"
   },
   "author": "",
   "license": "ISC",
