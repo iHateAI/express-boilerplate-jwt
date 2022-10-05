@@ -14,7 +14,7 @@ module.exports = class ApiError extends Error {
   }
 
   static expiredToken(msg) {
-    return new ApiError(msg, 419);
+    return new ApiError(msg, 401);
   }
 
   static unavailableToken(msg) {

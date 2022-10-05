@@ -25,7 +25,11 @@ module.exports = {
     const { email, password, nickname } = req.body;
     try {
       const user = await authService.createUser(email, password, nickname);
-      res.json(user);
+      res.status(201).json({
+        status: 201,
+        message: "회원가입 성공",
+        data: user,
+      });
     } catch (err) {
       next(err);
     }
