@@ -13,7 +13,6 @@ const dbConnect = require("./src/config/mongoose");
 const { authRouter } = require("./src/routes");
 
 const app = express();
-const PORT = 3000; // 수정 예정
 dotenv.config();
 
 // DB 연결
@@ -37,6 +36,6 @@ app.use("/docs", swaggerUI.serve, swaggerUI.setup(specs));
 app.use(errorMiddleware);
 
 // 서버 시작
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`http://localhost:${process.env.PORT || 3001}`);
 });
